@@ -164,7 +164,8 @@
                 var parsedUrl = resource.url.split('#');
                 // use the original URL for the getMap, as there's no need for a proxy for image requests
                 var getMapUrl = parsedUrl[0];
-                getMapUrl = getMapUrl.substring(0, getMapUrl.indexOf('?'));
+                if (getMapUrl.includes('?'))
+                    getMapUrl = getMapUrl.substring(0, getMapUrl.indexOf('?'));
 
                 var url = proxyServiceUrl || getMapUrl;
 
